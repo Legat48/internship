@@ -29,4 +29,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.property {
+  &__options {
+    display: flex;
+  }
+}
 </style>

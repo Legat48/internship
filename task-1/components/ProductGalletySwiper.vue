@@ -45,8 +45,6 @@ export default {
 
 <style lang="scss" scoped>
 .swiper {
-  width: rem($n: 856);
-  background-color: red;
   &__nav {
     margin-right: rem($n: 20);
     width: rem($n: 126);

@@ -1,5 +1,5 @@
 <template>
-  <div class="rating">
+  <button class="rating btn">
     <ul class="rating__list">
       <li v-for="star in starArr" :key="star.id" class="rating__item" :class="{'rating__item_active' : star.active}">
         <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -7,7 +7,10 @@
         </svg>
       </li>
     </ul>
-  </div>
+    <p class="rating__text">
+      {{ amountReview }} отзывов
+    </p>
+  </button>
 </template>
 
 <script>
@@ -15,6 +18,10 @@
 export default {
   props: {
     rating: {
+      type: Number,
+      default: 0
+    },
+    amountReview: {
       type: Number,
       default: 0
     }
@@ -58,14 +65,29 @@ export default {
 
 <style lang="scss" scoped>
 .rating {
+  display: flex;
+  align-items: center;
+  gap: rem($n: 16);
+  padding: rem($n: 8) rem($n: 12);
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  border-radius: 6px;
+  &__list {
+    display: flex;
+    gap: rem($n: 8);
+  }
   &__item {
     width: rem($n: 18);
     height: rem($n: 18);
     &_active {
       path {
-        fill: #2CBD3F;
+        fill: $color-svg-active;
       }
     }
+  }
+  &__text {
+    font-family: 'Inter', sans-serif ;
+    font-size: 0.875rem;
+    color: $color-text-2;
   }
 }
 </style>

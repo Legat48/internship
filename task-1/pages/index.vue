@@ -4,33 +4,60 @@
       Комод "Абрис"
     </h1>
     <div class="product">
-      <ProductGalletySwiper />
       <div class="product__wrap">
-        <BaseRating :rating="product.rating" />
-        <div class="product__wrap-price">
-          <strong class="product__price">
-            {{ Math.round( product.price * ((100 - product.sale) / 100)) }}
-          </strong>
-          <div class="product__sale">
-            -{{ product.sale }}%
+        <ProductGalletySwiper class="product__swiper" />
+        <form class="product__form" @submit.prevent="test()">
+          <BaseRating
+            class="product__rating"
+            :rating="product.rating"
+            :amount-review="product.amountReview"
+          />
+          <div class="product__wrap-info">
+            <div class="product__wrap-price">
+              <strong class="product__price">
+                {{ Math.round( product.price * ((100 - product.sale) / 100)) }}р
+              </strong>
+              <div class="product__sale">
+                -{{ product.sale }}%
+              </div>
+              <p class="product__old-price">
+                {{ product.price }}р
+              </p>
+            </div>
+            <div class="product__wrap-info-btn">
+              <button class="product__info-btn btn">
+                <svg
+                  class="product__info-svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M12.001 4.52898C14.35 2.41998 17.98 2.48998 20.243 4.75698C22.505 7.02498 22.583 10.637 20.479 12.993L11.999 21.485L3.52101 12.993C1.41701 10.637 1.49601 7.01898 3.75701 4.75698C6.02201 2.49298 9.64501 2.41698 12.001 4.52898ZM18.827 6.16998C17.327 4.66798 14.907 4.60698 13.337 6.01698L12.002 7.21498L10.666 6.01798C9.09101 4.60598 6.67601 4.66798 5.17201 6.17198C3.68201 7.66198 3.60701 10.047 4.98001 11.623L12 18.654L19.02 11.624C20.394 10.047 20.319 7.66498 18.827 6.16998Z" fill="#CBCBCB" />
+                </svg>
+              </button>
+              <button class="product__info-btn btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 18H4V10H9V18ZM7 16V12H6V16H7ZM13 16V8H12V16H13ZM15 18H10V6H15V18ZM19 16V4H18V16H19ZM21 18H16V2H21V18ZM22 22H3V20H22V22Z" fill="#CBCBCB" />
+                </svg>
+              </button>
+            </div>
           </div>
-          <p class="product__old-price">
-            {{ product.price }}р
-          </p>
-        </div>
-        <PropertySelection
-          v-for="property in product.propertyArr"
-          :key="property.id"
-          :property="property"
-        />
-        <div class="product__wrap-btn">
-          <button class="product__btn product__btn_add btn">
-            В корзину
-          </button>
-          <button class="product__btn product__btn_fast-add btn">
-            Купить в клик
-          </button>
-        </div>
+          <PropertySelection
+            v-for="property in product.propertyArr"
+            :key="property.id"
+            :property="property"
+          />
+          <div class="product__wrap-btn">
+            <button class="product__btn product__btn_add btn" type="submit">
+              В корзину
+            </button>
+            <button class="product__btn product__btn_fast-add btn" type="button" @click.prevent="test2()">
+              Купить в клик
+            </button>
+          </div>
+        </form>
       </div>
       <BaseTabs :characteristic-arr="product.characteristicArr" />
     </div>
@@ -56,6 +83,14 @@ export default {
       product = JSON.parse(JSON.stringify(product))
       return product
     }
+  },
+  methods: {
+    test () {
+      alert('testForm')
+    },
+    test2 () {
+      alert('testForm2')
+    }
   }
 }
 </script>
@@ -69,5 +104,64 @@ export default {
   font-family: 'Geometria', sans-serif ;
   font-size: 1.5rem;
   line-height: 2.125rem;
+}
+.product {
+  &__wrap {
+    display: flex;
+    gap: rem($n: 20);
+  }
+  &__swiper {
+    max-width: rem($n: 856);
+    min-height: rem($n: 641);
+    background-color: red;
+  }
+  &__rating {
+    margin-bottom: rem($n: 16);
+  }
+  &__wrap-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+  }
+  &__wrap-price {
+    display: flex;
+    align-items: center;
+    gap: rem($n: 24);
+    margin-right: auto;
+  }
+  &__price {
+    font-weight: 500;
+    font-family: 'Geometria', sans-serif ;
+    font-size: 2rem;
+    line-height: 140%;
+  }
+  &__sale {
+    padding: 2px 8px;
+    border-radius: 100px;
+    font-size: 1.5rem;
+    line-height: 140%;
+    background-color: #FFE34F;
+  }
+  &__old-price {
+    font-size: 1.5rem;
+    line-height: 1.875rem;
+    text-decoration-line: line-through;
+    color: $color-text-3;
+  }
+  &__wrap-info-btn {
+    display: flex;
+    gap: rem($n: 16);
+  }
+  &__info-btn {
+    @include flexCenter;
+    width: rem($n: 72);
+    height: rem($n: 72);
+    background-color: rgba(0, 0, 0, 0.02);
+    svg {
+      width: rem($n: 20);
+      height: rem($n: 20);
+    }
+  }
 }
 </style>
