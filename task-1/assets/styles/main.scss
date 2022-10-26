@@ -1,16 +1,5 @@
 @import 'resources/normalize';
 
-@import 'substyle/mixin';
-@import 'substyle/function';
-@import 'substyle/variables';
 @import 'substyle/fonts';
 @import 'substyle/common';
 @import 'substyle/btn';
-
-html body {
-  position: relative;
-  margin: 0 auto;
-  min-width: 320px;
-  font-family: 'Formular', sans-serif ;
-  background-color: red;
-}

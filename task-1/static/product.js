@@ -50,7 +50,7 @@ export default {
     {
       id: 3,
       selectId: 1,
-      title: 'Цвет дверцы',
+      title: 'Доставка',
       subclass: 'property_delivery',
       optionArr: [
         {

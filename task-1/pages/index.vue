@@ -115,6 +115,9 @@ export default {
     min-height: rem($n: 641);
     background-color: red;
   }
+  &__form {
+    width: 100%;
+  }
   &__rating {
     margin-bottom: rem($n: 16);
   }
@@ -161,6 +164,28 @@ export default {
     svg {
       width: rem($n: 20);
       height: rem($n: 20);
+    }
+  }
+  &__wrap-btn {
+    display: flex;
+    gap: rem($n: 20);
+    width: 100%;
+  }
+  &__btn {
+    padding: rem($n: 24);
+    border-radius: 2px;
+    width: 50%;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 1.875rem;
+    &_add {
+      color: $color-text-btn-1;
+      background-color: $color-bg-btn;
+    }
+    &_fast-add {
+      color: $color-text-btn-2;
+      border: 1px solid $color-border;
     }
   }
 }

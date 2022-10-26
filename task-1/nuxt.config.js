@@ -25,17 +25,15 @@ export default {
     }
   },
 
-  // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    'hooper/dist/hooper.css'
-    // '~/assets/styles/main.scss'
+    'hooper/dist/hooper.css',
+    '~/assets/styles/main.scss'
   ],
 
   styleResources: {
-    scss: ['~/assets/styles/*.scss']
+    scss: ['~/assets/styles/scss/*.scss']
   },
 
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '~/plugins/portalVue.js'
   ],

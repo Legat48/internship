@@ -17,7 +17,6 @@ html body {
   margin: 0 auto;
   min-width: 320px;
   font-family: 'Formular', sans-serif ;
-  background-color: red;
 }
 
 p, h1, h2, h3, li, ul, a {
@@ -29,5 +28,16 @@ a:hover {
   text-decoration: none;
 }
 
+// паттерн для скрытия
+div .visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+}
 
 
