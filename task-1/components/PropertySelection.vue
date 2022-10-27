@@ -11,7 +11,7 @@
             :alt="property.title"
             class="property__img"
           >
-          <input v-model="option.id" class="visually-hidden" type="radio" name="pay">
+          <input v-model="option.id" class="visually-hidden" type="radio" :name="property.name">
           <span class="property__value">
             {{ option.title }}
           </span>

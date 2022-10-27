@@ -1,13 +1,17 @@
 <template>
-  <div class="demo">
-    <label
-      v-for="component in componentArr"
-      :key="component.id"
-    ><input v-model="current" type="radio" :value="component.value">
-      {{ component.title }}
-    </label>
-    <KeepAlive>
-      <component :is="current" :characteristic-arr="characteristicArr" />
+  <div class="tabs">
+    <div class="tabs__header">
+      <label
+        v-for="component in componentArr"
+        :key="component.id"
+        class="tabs__label"
+      >
+        <input v-model="current" class="visually-hidden" type="radio" :value="component.value">
+        {{ component.title }}
+      </label>
+    </div>
+    <KeepAlive class="tabs__content">
+      <component :is="current" class="tabs__component" :characteristic="characteristic" />
     </KeepAlive>
   </div>
 </template>
@@ -35,8 +39,8 @@ export default {
           }]
       }
     },
-    characteristicArr: {
-      type: Array,
+    characteristic: {
+      type: Object,
       required: true
     }
   },
@@ -47,3 +51,19 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .tabs {
+    &__header {
+      display: flex;
+      gap: rem($n: 29);
+      margin-bottom: 32px;
+    }
+    &__label {
+      font-weight: 500;
+      font-size: 1.5rem;
+    }
+    &__text {
+    }
+  }
+</style>

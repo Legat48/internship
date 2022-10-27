@@ -5,7 +5,7 @@
     </h1>
     <div class="product">
       <div class="product__wrap">
-        <ProductGalletySwiper class="product__swiper" />
+        <ProductGalletySwiper class="product__swiper" :img-arr="product.imgArr" />
         <form class="product__form" @submit.prevent="test()">
           <BaseRating
             class="product__rating"
@@ -47,6 +47,8 @@
           <PropertySelection
             v-for="property in product.propertyArr"
             :key="property.id"
+            class="product__selection"
+            :class="[ property.subclass === 'property_delivery' ? 'product__selection_delivery' : '' ]"
             :property="property"
           />
           <div class="product__wrap-btn">
@@ -59,7 +61,7 @@
           </div>
         </form>
       </div>
-      <BaseTabs :characteristic-arr="product.characteristicArr" />
+      <BaseTabs class="product__tabs" :characteristic="product.characteristic" />
     </div>
   </div>
 </template>
@@ -109,6 +111,7 @@ export default {
   &__wrap {
     display: flex;
     gap: rem($n: 20);
+    margin-bottom: rem($n: 67);
   }
   &__swiper {
     max-width: rem($n: 856);
@@ -164,6 +167,12 @@ export default {
     svg {
       width: rem($n: 20);
       height: rem($n: 20);
+    }
+  }
+  &__selection {
+    margin-bottom: rem($n: 48);
+    &_delivery {
+      margin-bottom: rem($n: 16);
     }
   }
   &__wrap-btn {

@@ -1,44 +1,45 @@
 <template>
-  <hooper class="swiper">
-    <slide>
-      slide 1
-    </slide>
-    <slide>
-      slide 2
-    </slide>
-    <slide>
-      slide 3
-    </slide>
-    <slide>
-      slide 4
-    </slide>
-    <slide>
-      slide 5
-    </slide>
-    <slide>
-      slide 6
-    </slide>
-    <hooper-pagination slot="hooper-addons" />
-    <hooper-navigation slot="hooper-addons" />
-  </hooper>
+  <div class="swiper">
+    <button @click.prevent="slideNext">
+      prev
+    </button>
+    <hooper class="swiper__swiper">
+      <slide v-for="(img , index) in imgArr" :key="index" class="swiper__slide">
+        <img
+          :src="require(`~/assets/img/${img}`)"
+          alt="Изображение товара"
+          class="swiper__img"
+        >
+      </slide>
+      <hooper-pagination slot="hooper-addons" />
+    </hooper>
+  </div>
 </template>
 
 <script>
-// import 'hooper/dist/hooper.css'
 
 import {
   Hooper,
   Slide,
-  Pagination as HooperPagination,
-  Navigation as HooperNavigation
+  Pagination as HooperPagination
 } from 'hooper'
 
 export default {
   components: {
     Hooper,
     Slide,
-    HooperPagination,
-    HooperNavigation
+    HooperPagination
+  },
+  props: {
+    imgArr: {
+      type: Array,
+      required: true
+    }
+  },
+  methods: {
+    slideNext () {
+      this.$refs.carousel.slideNext()
+    }
   }
 }
 </script>
