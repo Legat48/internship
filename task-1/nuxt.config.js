@@ -47,7 +47,8 @@ export default {
   modules: [
     '@nuxtjs/style-resources',
     'cookie-universal-nuxt',
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/svg'
     // '@/node_modules/swiper/vue'
   ],
   axios: {
@@ -55,5 +56,26 @@ export default {
   },
 
   build: {
+    standalone: true, // for work last version Swiper Slider
+    extend (config, ctx) {
+      // fix to work with swiperjs 8 add needed deps. you can get them from error when doing nuxt generate
+      config.externals = [
+        {
+          encoding: 'encoding'
+        }
+      ]
+    }
+  },
+
+  svg: {
+    vueSvgLoader: {
+      // vue-svg-loader options
+    },
+    svgSpriteLoader: {
+      // svg-sprite-loader options
+    },
+    fileLoader: {
+      // file-loader options
+    }
   }
 }
