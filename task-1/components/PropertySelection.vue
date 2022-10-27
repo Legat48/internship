@@ -5,13 +5,22 @@
     </h3>
     <ul class="property__options">
       <li v-for="option in property.optionArr" :key="option.id" class="property__item">
-        <label class="property__label">
+        <label
+          class="property__label"
+          :class="[ idSelectedOption === option.id ? 'property__label_active' : '' ]"
+        >
           <img
             :src="require(`~/assets/img/${option.img}`)"
             :alt="property.title"
             class="property__img"
           >
-          <input v-model="option.id" class="visually-hidden" type="radio" :name="property.name">
+          <input
+            v-model="idSelectedOption"
+            class="visually-hidden"
+            type="radio"
+            :name="property.name"
+            :value="option.id"
+          >
           <span class="property__value">
             {{ option.title }}
           </span>
@@ -29,6 +38,14 @@ export default {
       type: Object,
       required: true
     }
+  },
+  data () {
+    return {
+      idSelectedOption: ''
+    }
+  },
+  mounted () {
+    this.idSelectedOption = this.property.optionArr[0].id
   }
 }
 </script>
@@ -74,9 +91,14 @@ export default {
     display: flex;
     align-items: center;
     gap: rem($n: 16);
-    padding: 8px 24px 8px 8px;
+    padding: 7px 23px 7px 7px;
+    border: 1px solid transparent;
     width: 100%;
     height: 100%;
+    @include transition;
+    &_active {
+      border: 1px solid $color-bg-btn;
+    }
     input {
       display: none;
     }

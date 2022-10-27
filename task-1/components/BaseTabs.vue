@@ -5,6 +5,7 @@
         v-for="component in componentArr"
         :key="component.id"
         class="tabs__label"
+        :class="[ current === component.value ? 'tabs__label_active' : '' ]"
       >
         <input v-model="current" class="visually-hidden" type="radio" :value="component.value">
         {{ component.title }}
@@ -60,8 +61,13 @@ export default {
       margin-bottom: 32px;
     }
     &__label {
-      font-weight: 500;
       font-size: 1.5rem;
+      color: $color-text-2;
+      @include transition;
+      &_active {
+        font-weight: 500;
+        color: $color-text-1;
+      }
     }
     &__text {
     }

@@ -1,5 +1,5 @@
 @mixin transition {
-  transition-property: box-shadow, border, outline, color, background-color, transform, fill, stroke, opacity, filter;
+  transition-property: box-shadow, border, outline, color, background-color, transform, fill, stroke, opacity, filter, font-weight, font-size;
   transition-duration: 0.3s;
   transition-timing-function: ease-in-out;
 }
