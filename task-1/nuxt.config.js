@@ -26,7 +26,7 @@ export default {
   },
 
   css: [
-    'hooper/dist/hooper.css',
+    'swiper/css',
     '~/assets/styles/main.scss'
   ],
 
@@ -38,28 +38,22 @@ export default {
     '~/plugins/portalVue.js'
   ],
 
-  // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module'
   ],
 
-  // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/style-resources',
     'cookie-universal-nuxt',
     '@nuxtjs/axios'
-    // 'hooper'
+    // '@/node_modules/swiper/vue'
   ],
   axios: {
-    // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     baseURL: '/'
   },
 
-  // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   }
 }

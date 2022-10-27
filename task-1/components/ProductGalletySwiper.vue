@@ -1,44 +1,48 @@
-<template>
-  <div class="swiper">
-    <button @click.prevent="slideNext">
-      prev
-    </button>
-    <hooper class="swiper__swiper">
-      <slide v-for="(img , index) in imgArr" :key="index" class="swiper__slide">
-        <img
-          :src="require(`~/assets/img/${img}`)"
-          alt="Изображение товара"
-          class="swiper__img"
-        >
-      </slide>
-      <hooper-pagination slot="hooper-addons" />
-    </hooper>
-  </div>
+<!-- <template>
+  <swiper
+    class="swiper"
+    :slides-per-view="3"
+    :space-between="50"
+    @swiper="onSwiper"
+    @slideChange="onSlideChange"
+  >
+    <swiper-slide v-for="(img , index) in imgArr" :key="index" class="swiper__slide">
+      <img
+        :src="require(`~/assets/img/${img}`)"
+        alt="Изображение товара"
+        class="swiper__img"
+      >
+    </swiper-slide>
+  </swiper>
 </template>
-
 <script>
+// Import Swiper Vue.js components
+// import { Swiper, SwiperSlide } from '@/node_modules/swiper/vue'
 
-import {
-  Hooper,
-  Slide,
-  Pagination as HooperPagination
-} from 'hooper'
+// Import Swiper styles
+// import 'swiper/css'
 
 export default {
-  components: {
-    Hooper,
-    Slide,
-    HooperPagination
-  },
+  // components: {
+  //   Swiper,
+  //   SwiperSlide
+  // },
   props: {
     imgArr: {
       type: Array,
       required: true
     }
   },
-  methods: {
-    slideNext () {
-      this.$refs.carousel.slideNext()
+  setup () {
+    const onSwiper = (swiper) => {
+      console.log(swiper)
+    }
+    const onSlideChange = () => {
+      console.log('slide change')
+    }
+    return {
+      onSwiper,
+      onSlideChange
     }
   }
 }
@@ -54,4 +58,4 @@ export default {
     width: rem($n: 708);
   }
 }
-</style>
+</style> -->

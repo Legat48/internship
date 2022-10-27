@@ -50,7 +50,13 @@ export default {
     display: flex;
     align-items: center;
     gap: rem($n: 8);
-
+    margin-right: auto;
+    padding: rem($n: 16);
+    font-size: 1.5rem;
+    line-height: 140%;
+    color: $color-text-2;
+    background-color: rgba(0, 0, 0, 0.02);
+    border-radius: 6px;
     svg {
       width: rem($n: 24);
       height: rem($n: 24);
@@ -80,6 +86,7 @@ export default {
     color: $color-text-2;
   }
   &__link {
+    margin-right: auto;
     font-size: 1.5rem;
     line-height: 140%;
     color: $color-text-btn-3;

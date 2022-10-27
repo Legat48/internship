@@ -5,7 +5,7 @@
     </h1>
     <div class="product">
       <div class="product__wrap">
-        <ProductGalletySwiper class="product__swiper" :img-arr="product.imgArr" />
+        <!-- <ProductGalletySwiper class="product__swiper" :img-arr="product.imgArr" /> -->
         <form class="product__form" @submit.prevent="test()">
           <BaseRating
             class="product__rating"
@@ -68,12 +68,12 @@
 
 <script>
 import BaseTabs from '@/components/BaseTabs.vue'
-import ProductGalletySwiper from '@/components/ProductGalletySwiper.vue'
+// import ProductGalletySwiper from '@/components/ProductGalletySwiper.vue'
 import PropertySelection from '@/components/PropertySelection.vue'
 import BaseRating from '@/components/BaseRating.vue'
 export default {
   components: {
-    ProductGalletySwiper,
+    // ProductGalletySwiper,
     PropertySelection,
     BaseRating,
     BaseTabs
