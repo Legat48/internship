@@ -102,6 +102,7 @@ export default {
   padding: 90px;
 }
 .title {
+  margin-bottom: rem($n: 24);
   font-weight: 500;
   font-family: 'Geometria', sans-serif ;
   font-size: 1.5rem;

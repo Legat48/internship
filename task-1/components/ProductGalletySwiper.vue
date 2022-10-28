@@ -92,15 +92,14 @@ export default {
     }
   },
   mounted () {
-    // eslint-disable-next-line no-unused-vars
     const imgData = this.imgArr
     function img (index) {
       return `<img src="/_nuxt/assets/img/${imgData[index]}" alt="Изображение товара" class="swiper__img" >`
     }
+    // eslint-disable-next-line no-unused-vars
     const swiper = new Swiper('.swiper__swiper', {
       loop: false,
       slidesPerView: 'auto',
-      spaceBetween: 15,
       grabCursor: true,
       modules: [Navigation, Pagination],
       pagination: {
@@ -114,7 +113,6 @@ export default {
         nextEl: '.swiper__btn_next'
       }
     })
-    console.log(swiper.pagination.bullets)
   }
 }
 </script>
@@ -128,13 +126,24 @@ export default {
     overflow: hidden;
   }
   &__nav {
-    margin-right: rem($n: 20);
+    display: flex;
+    flex-direction: column;
+    gap: rem($n: 16);
     width: rem($n: 126);
+  }
+  &__pagination {
+    display: flex;
+    flex-direction: column;
+    gap: rem($n: 16);
+  }
+  &__pagination-item {
+    max-height: rem($n: 116);
   }
   &__wrap {
     width: rem($n: 708);
   }
-  &__btn {
+  &__btn:deep() {
+    padding: rem($n: 16);
     svg {
       width: rem($n: 16);
       height: rem($n: 16);
