@@ -63,13 +63,13 @@ export default {
   <div class="swiper ">
     <div class="swiper__swiper mySwiper">
       <div class="swiper__wrap swiper-wrapper">
-        <swiper-slide v-for="(img , index) in imgArr" :key="index" class="swiper__slide swiper-slide">
+        <div v-for="(img , index) in imgArr" :key="index" class="swiper__slide swiper-slide">
           <img
             :src="require(`~/assets/img/${img}`)"
             alt="Изображение товара"
             class="swiper__img"
           >
-        </swiper-slide>
+        </div>
       </div>
     </div>
     <!-- If navigation buttons are needed -->
@@ -79,7 +79,6 @@ export default {
 </template>
 <script>
 import { Swiper, Navigation } from 'swiper'
-import 'swiper/swiper-bundle.min.css'
 
 export default {
   props: {
