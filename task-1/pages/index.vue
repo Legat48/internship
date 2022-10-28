@@ -109,14 +109,13 @@ export default {
 }
 .product {
   &__wrap {
-    display: flex;
+    display: grid;
+    grid-template-columns: rem($n: 856) 1fr;
     gap: rem($n: 20);
     margin-bottom: rem($n: 67);
   }
   &__swiper {
-    max-width: rem($n: 856);
     min-height: rem($n: 641);
-    background-color: red;
   }
   &__form {
     width: 100%;

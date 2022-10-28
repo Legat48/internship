@@ -61,7 +61,14 @@ export default {
 </style> -->
 <template>
   <div class="swiper ">
-    <div class="swiper__swiper mySwiper">
+    <div class="swiper__nav">
+      <div class="swiper__pagination" />
+      <div
+        class="swiper__btn swiper__btn_next svg-box btn"
+        v-html="require('@/assets/img/arrow-down.svg?raw')"
+      />
+    </div>
+    <div class="swiper__swiper">
       <div class="swiper__wrap swiper-wrapper">
         <div v-for="(img , index) in imgArr" :key="index" class="swiper__slide swiper-slide">
           <img
@@ -72,13 +79,10 @@ export default {
         </div>
       </div>
     </div>
-    <!-- If navigation buttons are needed -->
-    <div class="swiper-button-prev" />
-    <div class="swiper-button-next" />
   </div>
 </template>
 <script>
-import { Swiper, Navigation } from 'swiper'
+import { Swiper, Navigation, Pagination } from 'swiper'
 
 export default {
   props: {
@@ -89,29 +93,52 @@ export default {
   },
   mounted () {
     // eslint-disable-next-line no-unused-vars
+    const imgData = this.imgArr
+    function img (index) {
+      return `<img src="/_nuxt/assets/img/${imgData[index]}" alt="Изображение товара" class="swiper__img" >`
+    }
     const swiper = new Swiper('.swiper__swiper', {
       loop: false,
       slidesPerView: 'auto',
       spaceBetween: 15,
       grabCursor: true,
-      modules: [Navigation],
+      modules: [Navigation, Pagination],
+      pagination: {
+        el: '.swiper__pagination',
+        clickable: true,
+        renderBullet: function (index, className) {
+          return '<span class="swiper__pagination-item btn ' + className + '">' + img(index) + '</span>'
+        }
+      },
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
+        nextEl: '.swiper__btn_next'
       }
     })
+    console.log(swiper.pagination.bullets)
   }
 }
 </script>
 
 <style lang="scss" scoped>
 .swiper {
+  display: flex;
+  gap: rem($n: 20);
+  &__swiper {
+    width: rem($n: 708);
+    overflow: hidden;
+  }
   &__nav {
     margin-right: rem($n: 20);
     width: rem($n: 126);
   }
   &__wrap {
     width: rem($n: 708);
+  }
+  &__btn {
+    svg {
+      width: rem($n: 16);
+      height: rem($n: 16);
+    }
   }
 }
 </style>
