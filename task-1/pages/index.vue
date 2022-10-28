@@ -116,7 +116,7 @@ export default {
     margin-bottom: rem($n: 67);
   }
   &__swiper {
-    min-height: rem($n: 641);
+    max-height: rem($n: 641);
   }
   &__form {
     width: 100%;
