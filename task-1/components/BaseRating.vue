@@ -80,7 +80,7 @@ export default {
   &__item {
     width: rem($n: 18);
     height: rem($n: 18);
-    &_active {
+    &_active:deep() {
        path {
         fill: $color-svg-active;
       }
