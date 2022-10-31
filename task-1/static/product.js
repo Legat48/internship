@@ -7,6 +7,8 @@ export default {
     'product-1.png',
     'product-2.png',
     'product-3.png',
+    'product-3.png',
+    'product-3.png',
     'product-1.png'
   ],
   propertyArr: [
