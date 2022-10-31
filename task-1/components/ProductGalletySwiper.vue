@@ -34,7 +34,7 @@ export default {
   mounted () {
     const imgData = this.imgArr
     function img (index) {
-      return `<img class="swiper__pagination-img" src="/_nuxt/assets/img/${imgData[index]}" style="-webkit-user-drag: none; user-select: none; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none;" alt="Изображение товара" class="swiper__img" >`
+      return `<img class="swiper__pagination-img" src="/_nuxt/assets/img/${imgData[index]}" alt="Изображение товара" class="swiper__img" >`
     }
     // eslint-disable-next-line no-unused-vars
     const swiper = new Swiper('.swiper__swiper', {
@@ -90,9 +90,6 @@ export default {
     height: rem($n: 495);
     overflow-y: scroll;
   }
-  &__pagination-item {
-    max-height: rem($n: 116);
-  }
   &__wrap {
     width: rem($n: 708);
   }
@@ -106,12 +103,21 @@ export default {
   &__img {
    @include imgSwap;
   }
-  &__pagination-item img{
-    -webkit-user-drag: none;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-  }
-}
+  // Такой код прописан в файле 'styles/scss/substyle/common'
+  // .swiper__pagination .swiper-pagination-bullet-active {
+    // position: relative;
+    // &::after{
+      //   content: '';
+      //   position: absolute;
+      //   border: 3px solid #2CBD3F ;
+      //   top: 0;
+      //   left: 0;
+      //   right: 0;
+      //   bottom: 0;
+      //   pointer-events: none;
+      // }
+      // .swiper__pagination .swiper__pagination-item img{
+      //   @include imgSwap;
+      // }
+    }
 </style>
