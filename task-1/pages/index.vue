@@ -15,13 +15,13 @@
           <div class="product__wrap-info">
             <div class="product__wrap-price">
               <strong class="product__price">
-                {{ Math.round( product.price * ((100 - product.sale) / 100)) }}р
+                {{ Math.round( product.price * ((100 - product.sale) / 100)) | numberFormat }}р
               </strong>
               <div class="product__sale">
                 -{{ product.sale }}%
               </div>
               <p class="product__old-price">
-                {{ product.price }}р
+                {{ product.price | numberFormat }}р
               </p>
             </div>
             <div class="product__wrap-info-btn">
@@ -71,12 +71,18 @@ import BaseTabs from '@/components/BaseTabs.vue'
 import ProductGalletySwiper from '@/components/ProductGalletySwiper.vue'
 import PropertySelection from '@/components/PropertySelection.vue'
 import BaseRating from '@/components/BaseRating.vue'
+
+import numberFormat from '@/helpers/numberFormat'
+
 export default {
   components: {
     ProductGalletySwiper,
     PropertySelection,
     BaseRating,
     BaseTabs
+  },
+  filters: {
+    numberFormat
   },
   middleware: ['product'],
   computed: {

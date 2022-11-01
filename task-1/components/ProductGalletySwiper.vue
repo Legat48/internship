@@ -1,8 +1,13 @@
 <template>
   <div class="swiper ">
     <div class="swiper__nav">
+      <button
+        class="swiper__btn swiper__btn_up swiper__btn_deactive svg-box btn"
+        @click.prevent="scrollUp()"
+        v-html="require('@/assets/img/arrow-down.svg?raw')"
+      />
       <div class="swiper__pagination" />
-      <div
+      <button
         class="swiper__btn swiper__btn_down svg-box btn"
         @click.prevent="scrollDown()"
         v-html="require('@/assets/img/arrow-down.svg?raw')"
@@ -31,6 +36,9 @@ export default {
       required: true
     }
   },
+  computed: {
+
+  },
   mounted () {
     const imgData = this.imgArr
     function img (index) {
@@ -50,9 +58,30 @@ export default {
         }
       }
     })
+    const wrap = document.querySelector('.swiper__pagination')
+    const btnUp = document.querySelector('.swiper__btn_up')
+    wrap.addEventListener('scroll', (e) => {
+      if (wrap.scrollTop === 0) {
+        btnUp.classList.add('swiper__btn_deactive')
+      } else {
+        btnUp.classList.remove('swiper__btn_deactive')
+      }
+    })
   },
   methods: {
     // скролл вниз
+    scrollUp () {
+      const wrap = document.querySelector('.swiper__pagination')
+      const scrollDown = () => {
+        wrap.scrollTop = wrap.scrollTop - 7
+      }
+      // eslint-disable-next-line no-use-before-define
+      clearInterval(scrollInterval)
+      const scrollInterval = setInterval(scrollDown, 10)
+      setTimeout(() => {
+        clearInterval(scrollInterval)
+      }, 200)
+    },
     scrollDown () {
       const wrap = document.querySelector('.swiper__pagination')
       const scrollDown = () => {
@@ -84,6 +113,7 @@ export default {
     width: rem($n: 126);
   }
   &__pagination {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: rem($n: 16);
@@ -98,6 +128,24 @@ export default {
     svg {
       width: rem($n: 16);
       height: rem($n: 16);
+    }
+  }
+  &__btn {
+    &_up {
+      position: absolute;
+      top: 5px;
+      left: rem($n: 40);
+      border: 1px solid $color-bg-btn;
+      background-color: #fff;
+      transform: rotate(180deg);
+      width: rem($n: 40);
+      height: rem($n: 40);
+      padding: 0;
+      border-radius: 1000px;
+      z-index: 2;
+    }
+    &_deactive {
+      transform: translateY(-150%) rotate(180deg);
     }
   }
   &__img {
