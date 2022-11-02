@@ -70,8 +70,7 @@ export default {
     gap: rem($n: 20);
   }
   &__item {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
     width: calc(50% - rem($n: 20));
     font-size: 1.5rem;
     line-height: 140%;
@@ -82,9 +81,11 @@ export default {
     }
   }
   &__title {
+    width: 50%;
     font-weight: 500;
   }
   &__value {
+    width: 50%;
     color: $color-text-2;
   }
   &__link {

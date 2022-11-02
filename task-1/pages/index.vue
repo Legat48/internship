@@ -116,16 +116,17 @@ export default {
 }
 .product {
   &__wrap {
-    display: grid;
-    grid-template-columns: rem($n: 856) 1fr;
+    display: flex;
     gap: rem($n: 20);
     margin-bottom: rem($n: 67);
   }
   &__swiper {
+    width: rem($n: 856);
+    width: 856px;
     max-height: rem($n: 641);
   }
   &__form {
-    width: 100%;
+    width: 50%;
   }
   &__rating {
     margin-bottom: rem($n: 16);
