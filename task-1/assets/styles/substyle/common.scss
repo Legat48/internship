@@ -12,6 +12,15 @@ img,svg {
   height: 100%;
 }
 
+html {
+  @media (max-width: 1210px) {
+    font-size: 14px;
+  }
+  @media (max-width: 980px) {
+    font-size: 12px;
+  }
+}
+
 html body {
   position: relative;
   margin: 0 auto;
@@ -48,17 +57,20 @@ div .visually-hidden {
 }
 
 
-.swiper__pagination .swiper-pagination-bullet-active {
-  position: relative;
-  &::after{
-    content: '';
-    position: absolute;
-    border: 3px solid #2CBD3F ;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    pointer-events: none;
-  }
-}
+ .swiper__pagination .swiper-pagination-bullet-active {
+    position: relative;
+    &::after{
+        content: '';
+        position: absolute;
+        border: 3px solid #2CBD3F ;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+      }
+      .swiper__pagination .swiper__pagination-item img{
+        @include imgSwap;
+      }
+ }
 

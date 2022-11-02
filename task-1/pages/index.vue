@@ -119,10 +119,12 @@ export default {
     display: flex;
     gap: rem($n: 20);
     margin-bottom: rem($n: 67);
+    @media (max-width: 1210px) {
+      flex-direction: column;
+    }
   }
   &__swiper {
     width: rem($n: 856);
-    width: 856px;
     max-height: rem($n: 641);
   }
   &__form {
