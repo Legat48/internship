@@ -58,7 +58,7 @@ export default {
     &__header {
       display: flex;
       gap: rem($n: 29);
-      margin-bottom: 32px;
+      margin-bottom: rem($n: 38);
     }
     &__label {
       font-size: 1.5rem;

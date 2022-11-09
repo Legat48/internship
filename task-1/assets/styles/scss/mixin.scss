@@ -23,3 +23,28 @@
   -webkit-user-select: none;
   -ms-user-select: none;
 }
+
+$mobile: 480px;
+$tablet: 768px;
+$desktop: 1024px;
+$large-screen: 1920px;
+
+@mixin respond-to($media) {
+  @if $media == mobile {
+    @media screen and (max-width: $mobile ) { @content; }
+  }
+  @else if $media == tablet {
+    @media (min-width: ($mobile + 1px)) and (max-width: $tablet) { @content; }
+  }
+  @else if $media == laptop {
+    @media (min-width: ($tablet + 1px)) and (max-width: $desktop) { @content; }
+  }
+  @else if $media == desktop {
+    @media (min-width: ($desktop + 1px)) and (max-width: $large-screen) { @content; }
+  }
+  @else if $media == large-screen {
+    @media screen and (min-width: $large-screen) { @content; }
+  }
+}
+
+

@@ -67,7 +67,8 @@ export default {
   &__list {
     display: flex;
     flex-wrap: wrap;
-    gap: rem($n: 20);
+    gap: rem($n: 33);
+    margin-bottom: rem($n: 10);
   }
   &__item {
     display: flex;
@@ -83,6 +84,8 @@ export default {
   &__title {
     width: 50%;
     font-weight: 500;
+    font-size: rem($n: 24);
+    line-height: 140%;
   }
   &__value {
     width: 50%;

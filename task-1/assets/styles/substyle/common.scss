@@ -57,20 +57,20 @@ div .visually-hidden {
 }
 
 
- .swiper__pagination .swiper-pagination-bullet-active {
-    position: relative;
-    &::after{
-        content: '';
-        position: absolute;
-        border: 3px solid #2CBD3F ;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        pointer-events: none;
-      }
-      .swiper__pagination .swiper__pagination-item img{
-        @include imgSwap;
-      }
- }
+//  .swiper__pagination .swiper-pagination-bullet-active {
+//     position: relative;
+//     &::after{
+//         content: '';
+//         position: absolute;
+//         border: 3px solid #2CBD3F ;
+//         top: 0;
+//         left: 0;
+//         right: 0;
+//         bottom: 0;
+//         pointer-events: none;
+//       }
+//       .swiper__pagination .swiper__pagination-item img{
+//         @include imgSwap;
+//       }
+//  }
 

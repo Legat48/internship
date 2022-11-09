@@ -101,7 +101,10 @@ export default {
 <style lang="scss" scoped>
 .swiper {
   display: flex;
-  gap: rem($n: 20);
+  gap: rem($n: 12);
+  @include  respond-to(mobile) {
+    flex-direction: column-reverse;
+  }
   &__swiper {
     width: rem($n: 708);
     overflow: hidden;
@@ -109,16 +112,30 @@ export default {
   &__nav {
     display: flex;
     flex-direction: column;
-    gap: rem($n: 16);
-    width: rem($n: 126);
+    gap: rem($n: 20);
+    width: rem($n: 134);
+    @include  respond-to(mobile) {
+      flex-direction: row;
+      width: auto;
+      height: rem($n: 134);
+      width: 100%;
+
+    }
   }
   &__pagination {
     position: relative;
     display: flex;
     flex-direction: column;
     gap: rem($n: 16);
-    height: rem($n: 495);
+    height: rem($n: 541);
     overflow-y: scroll;
+    @include  respond-to(mobile) {
+      flex-direction: row;
+      overflow-y: auto;
+      overflow-x: scroll;
+      height: 100%;
+      background-color: red;
+    }
   }
   &__wrap {
     width: rem($n: 708);
@@ -134,7 +151,7 @@ export default {
     &_up {
       position: absolute;
       top: 5px;
-      left: rem($n: 40);
+      left: rem($n: 45);
       border: 1px solid $color-bg-btn;
       background-color: #fff;
       transform: rotate(180deg);
@@ -151,21 +168,26 @@ export default {
   &__img {
    @include imgSwap;
   }
-  // Такой код прописан в файле 'styles/scss/substyle/common'
-  // .swiper__pagination .swiper-pagination-bullet-active {
-    // position: relative;
-    // &::after{
-      //   content: '';
-      //   position: absolute;
-      //   border: 3px solid #2CBD3F ;
-      //   top: 0;
-      //   left: 0;
-      //   right: 0;
-      //   bottom: 0;
-      //   pointer-events: none;
-      // }
-      // .swiper__pagination .swiper__pagination-item img{
-      //   @include imgSwap;
-      // }
+
+}
+
+</style>
+<style lang="scss">
+// Такой код прописан в файле 'styles/scss/substyle/common'
+  .swiper__pagination .swiper-pagination-bullet-active {
+    position: relative;
+    &::after{
+        content: '';
+        position: absolute;
+        border: 3px solid #2CBD3F ;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+      }
+      .swiper__pagination .swiper__pagination-item img{
+        @include imgSwap;
+      }
     }
 </style>
