@@ -57,17 +57,20 @@ export default {
   .tabs {
     &__header {
       display: flex;
-      gap: rem($n: 29);
-      margin-bottom: rem($n: 38);
+      gap: sizeIncrease($min: 8, $max: 29);
+      margin-bottom: sizeIncrease($min: 8, $max: 32);
     }
     &__label {
-      font-size: 1.5rem;
+      font-size: sizeIncrease($min: 24, $max: 34);
       color: $color-text-2;
       @include transition;
       &_active {
         font-weight: 500;
         color: $color-text-1;
       }
+    }
+    &__content {
+
     }
     &__text {
     }

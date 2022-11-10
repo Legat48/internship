@@ -69,17 +69,17 @@ export default {
 .rating {
   display: flex;
   align-items: center;
-  gap: rem($n: 16);
-  padding: rem($n: 8) rem($n: 12);
+  gap: sizeIncrease($min: 8, $max: 8);
   border: 1px solid rgba(0, 0, 0, 0.02);
   border-radius: 6px;
+  padding: sizeIncrease($min: 8, $max: 8) sizeIncrease($min: 12, $max: 12);
   &__list {
     display: flex;
-    gap: rem($n: 8);
+    gap: sizeIncrease($min: 8, $max: 8);
   }
   &__item {
-    width: rem($n: 18);
-    height: rem($n: 18);
+    width: sizeIncrease($min: 18, $max: 18);
+    height: sizeIncrease($min: 18, $max: 18);
     &_active:deep() {
        path {
         fill: $color-svg-active;
@@ -88,7 +88,7 @@ export default {
   }
   &__text {
     font-family: 'Inter', sans-serif ;
-    font-size: 0.875rem;
+    font-size: sizeIncrease($min: 14, $max: 14);
     color: $color-text-2;
   }
 }

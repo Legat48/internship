@@ -47,18 +47,18 @@ export default {
 .characteristic {
   display: flex;
   flex-direction: column;
-  gap: rem($n: 32);
+  gap: sizeIncrease($min: 8, $max: 20);
   &__link-file {
     display: flex;
     align-items: center;
     gap: rem($n: 8);
     margin-right: auto;
     padding: rem($n: 16);
+    border-radius: 6px;
     font-size: 1.5rem;
     line-height: 140%;
     color: $color-text-2;
     background-color: rgba(0, 0, 0, 0.02);
-    border-radius: 6px;
     svg {
       width: rem($n: 24);
       height: rem($n: 24);
@@ -72,8 +72,9 @@ export default {
   }
   &__item {
     display: flex;
-    width: calc(50% - rem($n: 20));
-    font-size: 1.5rem;
+    border-bottom: 1px solid #F3F3F3;
+    width: calc(50% - sizeIncrease($min: 8, $max: 20));
+    font-size: sizeIncrease($min: 14, $max: 24);
     line-height: 140%;
     &_active {
       path {
@@ -84,7 +85,7 @@ export default {
   &__title {
     width: 50%;
     font-weight: 500;
-    font-size: rem($n: 24);
+    font-size: sizeIncrease($min: 14, $max: 24);
     line-height: 140%;
   }
   &__value {
@@ -93,7 +94,7 @@ export default {
   }
   &__link {
     margin-right: auto;
-    font-size: 1.5rem;
+    font-size: sizeIncrease($min: 18, $max: 24);
     line-height: 140%;
     color: $color-text-btn-3;
     text-decoration-line: underline;

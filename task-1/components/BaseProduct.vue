@@ -38,20 +38,10 @@
 
 <script>
 export default {
-  middleware: ['product'],
-  computed: {
-    product () {
-      let product = this.$store.getters['product/getProduct']
-      product = JSON.parse(JSON.stringify(product))
-      return product
-    }
-  },
-  methods: {
-    test () {
-      alert('testForm')
-    },
-    test2 () {
-      alert('testForm2')
+  props: {
+    product: {
+      type: Object,
+      required: true
     }
   }
 }
@@ -60,35 +50,31 @@ export default {
 <style lang="scss" scoped>
 .product {
   &__title {
-  margin-bottom: rem($n: 24);
-  font-weight: 500;
-  font-family: 'Geometria', sans-serif ;
-  font-size: 1.5rem;
-  line-height: 2.125rem;
+    margin-bottom: sizeIncrease($min: 20, $max: 38);
+    font-weight: 500;
+    font-family: 'Geometria', sans-serif ;
+    font-size: sizeIncrease($min: 24, $max: 24);;
+    line-height: 140%;
   }
   &__wrap {
-    inset: 1px 1px 1px 1px;
-    display: flex;
-    gap: rem($n: 20);
-    margin-bottom: rem($n: 67);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: sizeDecrease($min: 20, $max: 38);
+    margin-bottom: sizeIncrease($min: 36, $max: 67);
+    width: 100%;
     @include  respond-to(mobile) {
-      flex-direction: column;
+      grid-template-columns: 1fr;
     }
   }
   &__swiper {
-    width: rem($n: 856);
-    max-height: rem($n: 641);
+    width: 100%;
     @include  respond-to(mobile) {
-      width: 100%;
-      max-height: auto;
-
     }
   }
   &__form {
-    width: 50%;
   }
   &__rating {
-    margin-bottom: rem($n: 14);
+    margin-bottom: sizeIncrease($min: 15, $max: 24);
   }
   &__wrap-info {
     display: flex;
@@ -98,24 +84,24 @@ export default {
     width: 100%;
   }
   &__selection {
-    margin-bottom: rem($n: 48);
+    margin-bottom: sizeIncrease($min: 24, $max: 48);
     &_delivery {
-      margin-bottom: rem($n: 16);
+      margin-bottom: sizeIncrease($min: 0, $max: 16);
     }
   }
   &__wrap-btn {
     display: flex;
-    gap: rem($n: 20);
+    gap: sizeIncrease($min: 20, $max: 20);
     width: 100%;
   }
   &__btn {
-    padding: rem($n: 24);
+    padding: sizeIncrease($min: 16, $max: 24);
     border-radius: 2px;
     width: 50%;
     font-family: 'Inter';
     font-weight: 400;
-    font-size: 1.5rem;
-    line-height: 1.875rem;
+    font-size: sizeIncrease($min: 12, $max: 24);
+    line-height: sizeIncrease($min: 15, $max: 29);
     &_add {
       color: $color-text-btn-1;
       background-color: $color-bg-btn;

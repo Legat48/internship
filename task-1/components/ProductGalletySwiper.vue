@@ -101,33 +101,31 @@ export default {
 <style lang="scss" scoped>
 .swiper {
   display: flex;
-  gap: rem($n: 12);
+  gap: sizeIncrease($min: 12, $max: 12);
   @include  respond-to(mobile) {
     flex-direction: column-reverse;
   }
   &__swiper {
-    width: rem($n: 708);
+    width: sizeIncrease($min: 374, $max: 708);
     overflow: hidden;
   }
   &__nav {
     display: flex;
     flex-direction: column;
-    gap: rem($n: 20);
-    width: rem($n: 134);
+    gap: sizeIncrease($min: 20, $max: 20);
+    width: sizeIncrease($min: 134, $max: 134);
     @include  respond-to(mobile) {
       flex-direction: row;
       width: auto;
-      height: rem($n: 134);
-      width: 100%;
-
+      height: sizeIncrease($min: 134, $max: 134);
     }
   }
   &__pagination {
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: rem($n: 16);
-    height: rem($n: 541);
+    gap: sizeIncrease($min: 16, $max: 16);
+    height: sizeIncrease($min: 450, $max: 574);
     overflow-y: scroll;
     @include  respond-to(mobile) {
       flex-direction: row;
@@ -138,7 +136,9 @@ export default {
     }
   }
   &__wrap {
-    width: rem($n: 708);
+    width: sizeIncrease($min: 374, $max: 708);
+    width: 100%;
+
   }
   &__btn:deep() {
     padding: rem($n: 16);
@@ -151,15 +151,15 @@ export default {
     &_up {
       position: absolute;
       top: 5px;
-      left: rem($n: 45);
-      border: 1px solid $color-bg-btn;
-      background-color: #fff;
-      transform: rotate(180deg);
-      width: rem($n: 40);
-      height: rem($n: 40);
-      padding: 0;
-      border-radius: 1000px;
+      left: 5.6%;
       z-index: 2;
+      padding: 0;
+      border: 1px solid $color-bg-btn;
+      border-radius: 1000px;
+      width: sizeIncrease($min: 25, $max: 40);
+      height: sizeIncrease($min: 25, $max: 40);
+      transform: rotate(180deg);
+      background-color: #fff;
     }
     &_deactive {
       transform: translateY(-150%) rotate(180deg);
