@@ -58,18 +58,18 @@ export default {
   width: 100%;
   &_delivery {
     .property__options {
-      gap: rem($n: 20);
+      gap: sizeDecrease($min: 8, $max: 15);
       width: 100%;
     }
     .property__item {
       width: 50%;
     }
     .property__label {
-      padding: rem($n: 24) rem($n: 20) rem($n: 24) rem($n: 24);
+      padding: sizeIncrease($min: 24, $max: 24);
     }
     .property__img {
-      width: rem($n: 24);
-      height: rem($n: 24);
+      width: sizeIncrease($min: 24, $max: 24);
+      height: sizeIncrease($min: 24, $max: 24);
     }
   }
   &__title {
@@ -80,7 +80,7 @@ export default {
   }
   &__options {
     display: flex;
-    gap: rem($n: 8);
+    gap: sizeDecrease($min: 8, $max: 15);
   }
   &__item {
     border: 1px solid $color-border;
@@ -90,8 +90,8 @@ export default {
   &__label {
     display: flex;
     align-items: center;
-    gap: rem($n: 16);
-    padding: 7px 23px 7px 7px;
+    gap: sizeDecrease($min: 16, $max: 16);
+    padding: sizeDecrease($min: 8, $max: 12);
     border: 1px solid transparent;
     width: 100%;
     height: 100%;

@@ -12,7 +12,12 @@
       </label>
     </div>
     <KeepAlive class="tabs__content">
-      <component :is="current" class="tabs__component" :characteristic="characteristic" />
+      <component
+        :is="current"
+        class="tabs__component"
+        :characteristic="product.characteristic"
+        :review="product.review"
+      />
     </KeepAlive>
   </div>
 </template>
@@ -40,7 +45,7 @@ export default {
           }]
       }
     },
-    characteristic: {
+    product: {
       type: Object,
       required: true
     }

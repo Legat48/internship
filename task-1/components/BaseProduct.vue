@@ -4,7 +4,7 @@
       Кресло "Папасан" без ротанга
     </h1>
     <div class="product__wrap">
-      <product-galletySwiper class="product__swiper" :img-arr="product.imgArr" />
+      <product-gallety-swiper class="product__swiper" :img-arr="product.imgArr" />
       <form class="product__form" @submit.prevent="test()">
         <base-rating
           class="product__rating"
@@ -32,7 +32,7 @@
         </div>
       </form>
     </div>
-    <base-tabs class="product__tabs" :characteristic="product.characteristic" />
+    <base-tabs class="product__tabs" :product="product" />
   </div>
 </template>
 

@@ -1,15 +1,18 @@
 <template>
-  <div class="characteristic">
-    <ul class="characteristic__list">
-      тут отзывы компонентом каждый наверное
-    </ul>
+  <div class="rewiews">
+    <base-review class="rewiews__rewiew" :review="review" />
   </div>
 </template>
 
 <script>
 
 export default {
-
+  props: {
+    review: {
+      type: Object,
+      required: true
+    }
+  }
 }
 </script>
 

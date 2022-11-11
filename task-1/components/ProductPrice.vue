@@ -37,19 +37,19 @@ export default {
   &__price {
     font-weight: 500;
     font-family: 'Geometria', sans-serif ;
-    font-size: 2rem;
+    font-size: sizeIncrease($min: 32, $max: 32);
     line-height: 140%;
   }
   &__sale {
     padding: 2px 8px;
     border-radius: 100px;
-    font-size: 1.5rem;
+    font-size: sizeIncrease($min: 24, $max: 24);
     line-height: 140%;
     background-color: #FFE34F;
   }
   &__old-price {
-    font-size: 1.5rem;
-    line-height: 1.875rem;
+    font-size: sizeIncrease($min: 24, $max: 24);
+    line-height: sizeIncrease($min: 29, $max: 29);
     text-decoration-line: line-through;
     color: $color-text-3;
   }

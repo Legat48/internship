@@ -51,28 +51,30 @@ export default {
   &__link-file {
     display: flex;
     align-items: center;
-    gap: rem($n: 8);
+    gap: sizeIncrease($min: 8, $max: 8);
     margin-right: auto;
-    padding: rem($n: 16);
+    padding: sizeIncrease($min: 16, $max: 16);
     border-radius: 6px;
-    font-size: 1.5rem;
+    font-size: sizeIncrease($min: 14, $max: 24);
     line-height: 140%;
     color: $color-text-2;
     background-color: rgba(0, 0, 0, 0.02);
     svg {
-      width: rem($n: 24);
-      height: rem($n: 24);
+      width: sizeIncrease($min: 24, $max: 24);
+      height: sizeIncrease($min: 24, $max: 24);
     }
   }
   &__list {
     display: flex;
     flex-wrap: wrap;
-    gap: rem($n: 33);
-    margin-bottom: rem($n: 10);
+    column-gap: sizeIncrease($min: 16, $max: 16);
+    padding: sizeIncrease($min: 16, $max: 16);
+    margin-bottom: sizeIncrease($min: 24, $max: 53);
   }
   &__item {
     display: flex;
     border-bottom: 1px solid #F3F3F3;
+    padding: sizeIncrease($min: 8, $max: 16) 0;
     width: calc(50% - sizeIncrease($min: 8, $max: 20));
     font-size: sizeIncrease($min: 14, $max: 24);
     line-height: 140%;

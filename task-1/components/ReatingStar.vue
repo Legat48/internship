@@ -1,10 +1,13 @@
 <template>
-  <button class="rating btn">
-    <reating-star :rating="rating" />
-    <p class="rating__text">
-      {{ amountReview }} отзывов
-    </p>
-  </button>
+  <ul class="rating-star">
+    <li
+      v-for="star in starArr"
+      :key="star.id"
+      class="rating-star__item"
+      :class="{'rating-star__item_active' : star.active}"
+      v-html="require('@/assets/img/star.svg?raw')"
+    />
+  </ul>
 </template>
 
 <script>
@@ -12,10 +15,6 @@
 export default {
   props: {
     rating: {
-      type: Number,
-      default: 0
-    },
-    amountReview: {
       type: Number,
       default: 0
     }
@@ -58,17 +57,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.rating {
+.rating-star {
   display: flex;
-  align-items: center;
   gap: sizeIncrease($min: 8, $max: 8);
-  border: 1px solid rgba(0, 0, 0, 0.02);
-  border-radius: 6px;
-  padding: sizeIncrease($min: 8, $max: 8) sizeIncrease($min: 12, $max: 12);
-  &__text {
-    font-family: 'Inter', sans-serif ;
-    font-size: sizeIncrease($min: 14, $max: 14);
-    color: $color-text-2;
+  &__item {
+    width: sizeIncrease($min: 18, $max: 18);
+    height: sizeIncrease($min: 18, $max: 18);
+    &_active:deep() {
+       path {
+        fill: $color-svg-active;
+      }
+    }
   }
 }
 </style>

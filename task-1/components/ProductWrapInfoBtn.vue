@@ -29,15 +29,15 @@ export default {
 <style lang="scss" scoped>
 .wrap-info-btn {
   display: flex;
-  gap: rem($n: 16);
+  gap: sizeIncrease($min: 16, $max: 16);
   &__info-btn {
     @include flexCenter;
-    width: rem($n: 72);
-    height: rem($n: 72);
+    width: sizeIncrease($min: 24, $max: 24);
+    height: sizeIncrease($min: 24, $max: 24);
     background-color: rgba(0, 0, 0, 0.02);
     svg {
-      width: rem($n: 20);
-      height: rem($n: 20);
+      width: sizeIncrease($min: 20, $max: 20);
+      height: sizeIncrease($min: 20, $max: 20);
     }
   }
 }

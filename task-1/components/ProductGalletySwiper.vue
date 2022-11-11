@@ -166,7 +166,8 @@ export default {
     }
   }
   &__img {
-   @include imgSwap;
+    object-fit: cover;
+    @include imgSwap;
   }
 
 }
