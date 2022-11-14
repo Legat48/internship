@@ -47,37 +47,40 @@ export default {
 .characteristic {
   display: flex;
   flex-direction: column;
-  gap: sizeIncrease($min: 8, $max: 20);
+  gap: sizeIncr($min: 8, $max: 20);
   &__link-file {
     display: flex;
     align-items: center;
-    gap: sizeIncrease($min: 8, $max: 8);
+    gap: sizeIncr($min: 8, $max: 8);
     margin-right: auto;
-    padding: sizeIncrease($min: 16, $max: 16);
+    padding: sizeIncr($min: 16, $max: 16);
     border-radius: 6px;
-    font-size: sizeIncrease($min: 14, $max: 24);
+    font-size: sizeIncr($min: 14, $max: 24);
     line-height: 140%;
     color: $color-text-2;
     background-color: rgba(0, 0, 0, 0.02);
     svg {
-      width: sizeIncrease($min: 24, $max: 24);
-      height: sizeIncrease($min: 24, $max: 24);
+      width: sizeIncr($min: 24, $max: 24);
+      height: sizeIncr($min: 24, $max: 24);
     }
   }
   &__list {
     display: flex;
     flex-wrap: wrap;
-    column-gap: sizeIncrease($min: 16, $max: 16);
-    padding: sizeIncrease($min: 16, $max: 16);
-    margin-bottom: sizeIncrease($min: 24, $max: 53);
+    column-gap: sizeIncr($min: 16, $max: 16);
+    padding: sizeIncr($min: 16, $max: 16);
+    margin-bottom: sizeIncr($min: 24, $max: 53);
   }
   &__item {
     display: flex;
     border-bottom: 1px solid #F3F3F3;
-    padding: sizeIncrease($min: 8, $max: 16) 0;
-    width: calc(50% - sizeIncrease($min: 8, $max: 20));
-    font-size: sizeIncrease($min: 14, $max: 24);
+    padding: sizeIncr($min: 8, $max: 16) 0;
+    width: calc(50% - sizeIncr($min: 8, $max: 20));
+    font-size: sizeIncr($min: 14, $max: 24);
     line-height: 140%;
+    @include  respond-to(mobile) {
+      width: 100%;
+    }
     &_active {
       path {
         fill: #2CBD3F;
@@ -87,7 +90,7 @@ export default {
   &__title {
     width: 50%;
     font-weight: 500;
-    font-size: sizeIncrease($min: 14, $max: 24);
+    font-size: sizeIncr($min: 14, $max: 24);
     line-height: 140%;
   }
   &__value {
@@ -96,7 +99,7 @@ export default {
   }
   &__link {
     margin-right: auto;
-    font-size: sizeIncrease($min: 18, $max: 24);
+    font-size: sizeIncr($min: 18, $max: 24);
     line-height: 140%;
     color: $color-text-btn-3;
     text-decoration-line: underline;

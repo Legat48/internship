@@ -101,42 +101,42 @@ export default {
 <style lang="scss" scoped>
 .swiper {
   display: flex;
-  gap: sizeIncrease($min: 12, $max: 12);
+  gap: sizeIncr($min: 12, $max: 12);
   @include  respond-to(mobile) {
     flex-direction: column-reverse;
   }
   &__swiper {
-    width: sizeIncrease($min: 374, $max: 708);
+    width: sizeIncr($min: 374, $max: 708);
+    height: sizeIncr($min: 315, $max: 630);
     overflow: hidden;
   }
   &__nav {
     display: flex;
     flex-direction: column;
-    gap: sizeIncrease($min: 20, $max: 20);
-    width: sizeIncrease($min: 134, $max: 134);
+    gap: sizeIncr($min: 20, $max: 20);
+    width: sizeIncr($min: 134, $max: 134);
     @include  respond-to(mobile) {
       flex-direction: row;
       width: auto;
-      height: sizeIncrease($min: 134, $max: 134);
+      height: sizeIncr($min: 134, $max: 134);
     }
   }
   &__pagination {
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: sizeIncrease($min: 16, $max: 16);
-    height: sizeIncrease($min: 450, $max: 574);
+    gap: sizeIncr($min: 6, $max: 16);
+    height: sizeIncr($min: 450, $max: 574);
     overflow-y: scroll;
     @include  respond-to(mobile) {
       flex-direction: row;
-      overflow-y: auto;
+      overflow-y: hidden;
       overflow-x: scroll;
       height: 100%;
-      background-color: red;
     }
   }
   &__wrap {
-    width: sizeIncrease($min: 374, $max: 708);
+    width: sizeIncr($min: 374, $max: 708);
     width: 100%;
 
   }
@@ -148,6 +148,9 @@ export default {
     }
   }
   &__btn {
+    @include  respond-to(mobile) {
+      display: none;
+    }
     &_up {
       position: absolute;
       top: 5px;
@@ -156,14 +159,18 @@ export default {
       padding: 0;
       border: 1px solid $color-bg-btn;
       border-radius: 1000px;
-      width: sizeIncrease($min: 25, $max: 40);
-      height: sizeIncrease($min: 25, $max: 40);
+      width: sizeIncr($min: 25, $max: 40);
+      height: sizeIncr($min: 25, $max: 40);
       transform: rotate(180deg);
       background-color: #fff;
+      @include  respond-to(mobile) {
+      display: none;
+    }
     }
     &_deactive {
       transform: translateY(-150%) rotate(180deg);
     }
+
   }
   &__img {
     object-fit: cover;
@@ -174,8 +181,12 @@ export default {
 
 </style>
 <style lang="scss">
-// Такой код прописан в файле 'styles/scss/substyle/common'
-  .swiper__pagination .swiper-pagination-bullet-active {
+  .swiper {
+    &__pagination-img {
+      min-width: 123px;
+      object-fit: cover;
+    }
+    &__pagination .swiper-pagination-bullet-active {
     position: relative;
     &::after{
         content: '';
@@ -191,4 +202,5 @@ export default {
         @include imgSwap;
       }
     }
+  }
 </style>

@@ -59,10 +59,10 @@ export default {
 <style lang="scss" scoped>
 .rating-star {
   display: flex;
-  gap: sizeIncrease($min: 8, $max: 8);
+  gap: sizeIncr($min: 8, $max: 8);
   &__item {
-    width: sizeIncrease($min: 18, $max: 18);
-    height: sizeIncrease($min: 18, $max: 18);
+    width: sizeIncr($min: 18, $max: 18);
+    height: sizeIncr($min: 18, $max: 18);
     &_active:deep() {
        path {
         fill: $color-svg-active;

@@ -16,7 +16,7 @@
         :is="current"
         class="tabs__component"
         :characteristic="product.characteristic"
-        :review="product.review"
+        :review-arr="product.reviewArr"
       />
     </KeepAlive>
   </div>
@@ -62,11 +62,11 @@ export default {
   .tabs {
     &__header {
       display: flex;
-      gap: sizeIncrease($min: 8, $max: 29);
-      margin-bottom: sizeIncrease($min: 8, $max: 32);
+      gap: sizeIncr($min: 8, $max: 29);
+      margin-bottom: sizeIncr($min: 8, $max: 32);
     }
     &__label {
-      font-size: sizeIncrease($min: 24, $max: 34);
+      font-size: sizeIncr($min: 24, $max: 34);
       color: $color-text-2;
       @include transition;
       &_active {

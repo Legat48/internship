@@ -61,13 +61,13 @@ export default {
 .rating {
   display: flex;
   align-items: center;
-  gap: sizeIncrease($min: 8, $max: 8);
+  gap: sizeIncr($min: 8, $max: 8);
   border: 1px solid rgba(0, 0, 0, 0.02);
   border-radius: 6px;
-  padding: sizeIncrease($min: 8, $max: 8) sizeIncrease($min: 12, $max: 12);
+  padding: sizeIncr($min: 8, $max: 8) sizeIncr($min: 12, $max: 12);
   &__text {
     font-family: 'Inter', sans-serif ;
-    font-size: sizeIncrease($min: 14, $max: 14);
+    font-size: sizeIncr($min: 14, $max: 14);
     color: $color-text-2;
   }
 }

@@ -23,7 +23,7 @@ export default {
 .wrap {
   padding: 90px;
   @include  respond-to(mobile) {
-    padding:  90px 0px;
+    padding:  90px 16px;
   }
 }
 

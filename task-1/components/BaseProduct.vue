@@ -50,19 +50,21 @@ export default {
 <style lang="scss" scoped>
 .product {
   &__title {
-    margin-bottom: sizeIncrease($min: 20, $max: 38);
+    margin-bottom: sizeIncr($min: 20, $max: 38);
     font-weight: 500;
     font-family: 'Geometria', sans-serif ;
-    font-size: sizeIncrease($min: 24, $max: 24);;
+    font-size: sizeIncr($min: 24, $max: 24);;
     line-height: 140%;
   }
   &__wrap {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: sizeDecrease($min: 20, $max: 38);
-    margin-bottom: sizeIncrease($min: 36, $max: 67);
+    gap: sizeDecr($min: 20, $max: 38);
+    margin-bottom: sizeIncr($min: 36, $max: 67);
     width: 100%;
     @include  respond-to(mobile) {
+      padding-top: 58px;
       grid-template-columns: 1fr;
     }
   }
@@ -74,7 +76,11 @@ export default {
   &__form {
   }
   &__rating {
-    margin-bottom: sizeIncrease($min: 15, $max: 24);
+    margin-bottom: sizeIncr($min: 15, $max: 24);
+    @include  respond-to(mobile) {
+      position: absolute;
+      inset: 0 0 auto 0;
+    }
   }
   &__wrap-info {
     display: flex;
@@ -84,28 +90,26 @@ export default {
     width: 100%;
   }
   &__selection {
-    margin-bottom: sizeIncrease($min: 24, $max: 48);
+    margin-bottom: sizeIncr($min: 24, $max: 48);
     &_delivery {
-      margin-bottom: sizeIncrease($min: 0, $max: 16);
+      margin-bottom: sizeIncr($min: 0, $max: 16);
     }
   }
   &__wrap-btn {
     display: flex;
-    gap: sizeIncrease($min: 20, $max: 20);
+    gap: sizeIncr($min: 20, $max: 20);
     width: 100%;
   }
   &__btn {
-    padding: sizeIncrease($min: 16, $max: 24);
+    padding: sizeIncr($min: 16, $max: 24);
     border-radius: 2px;
     width: 50%;
     font-family: 'Inter';
     font-weight: 400;
-    font-size: sizeIncrease($min: 12, $max: 24);
-    line-height: sizeIncrease($min: 15, $max: 29);
-    &_add {
-      color: $color-text-btn-1;
-      background-color: $color-bg-btn;
-    }
+    font-size: sizeIncr($min: 12, $max: 24);
+    line-height: sizeIncr($min: 15, $max: 29);
+    color: $color-text-btn-1;
+    background-color: $color-bg-btn;
     &_fast-add {
       color: $color-text-btn-2;
       border: 1px solid $color-border;

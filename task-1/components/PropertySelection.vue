@@ -58,18 +58,18 @@ export default {
   width: 100%;
   &_delivery {
     .property__options {
-      gap: sizeDecrease($min: 8, $max: 15);
+      gap: sizeDecr($min: 8, $max: 15);
       width: 100%;
     }
     .property__item {
       width: 50%;
     }
     .property__label {
-      padding: sizeIncrease($min: 24, $max: 24);
+      padding: sizeIncr($min: 24, $max: 24);
     }
     .property__img {
-      width: sizeIncrease($min: 24, $max: 24);
-      height: sizeIncrease($min: 24, $max: 24);
+      width: sizeIncr($min: 24, $max: 24);
+      height: sizeIncr($min: 24, $max: 24);
     }
   }
   &__title {
@@ -80,7 +80,7 @@ export default {
   }
   &__options {
     display: flex;
-    gap: sizeDecrease($min: 8, $max: 15);
+    gap: sizeDecr($min: 8, $max: 15);
   }
   &__item {
     border: 1px solid $color-border;
@@ -90,8 +90,8 @@ export default {
   &__label {
     display: flex;
     align-items: center;
-    gap: sizeDecrease($min: 16, $max: 16);
-    padding: sizeDecrease($min: 8, $max: 12);
+    gap: sizeDecr($min: 16, $max: 16);
+    padding: sizeDecr($min: 8, $max: 12);
     border: 1px solid transparent;
     width: 100%;
     height: 100%;
