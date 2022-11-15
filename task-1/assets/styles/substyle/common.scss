@@ -13,6 +13,11 @@ img,svg {
 }
 
 html {
+  --vw : 100vw;
+  @media (min-width: #{$maxvw + 1}px) {
+    --vw : #{$maxvw}px;
+  }
+  
   @media (max-width: 1210px) {
     font-size: 14px;
   }

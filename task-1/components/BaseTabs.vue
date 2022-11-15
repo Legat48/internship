@@ -1,50 +1,37 @@
 <template>
   <div class="tabs">
     <div class="tabs__header">
-      <label
-        v-for="component in componentArr"
-        :key="component.id"
-        class="tabs__label"
-        :class="[ current === component.value ? 'tabs__label_active' : '' ]"
+      <button
+        class="tabs__btn btn"
+        :class="[ activeComponent === 'characteristic' ? 'tabs__btn_active' : '' ]"
+        @click.prevent="tabsFunc('characteristic')"
       >
-        <input v-model="current" class="visually-hidden" type="radio" :value="component.value">
-        {{ component.title }}
-      </label>
+        Характеристики
+      </button>
+      <button
+        class="tabs__btn btn"
+        :class="[ activeComponent === 'reviews' ? 'tabs__btn_active' : '' ]"
+        @click.prevent="tabsFunc('reviews')"
+      >
+        Отзывы покупателей
+      </button>
     </div>
-    <KeepAlive class="tabs__content">
-      <component
-        :is="current"
-        class="tabs__component"
-        :characteristic="product.characteristic"
-        :review-arr="product.reviewArr"
-      />
-    </KeepAlive>
+    <product-characteristic
+      class="tabs__content tabs__content_characteristic"
+      :class="[ activeComponent === 'characteristic' ? 'tabs__content_active' : '' ]"
+      :characteristic="product.characteristic"
+    />
+    <product-reviews
+      class="tabs__content tabs__content_reviews"
+      :class="[ activeComponent === 'reviews' ? 'tabs__content_active' : '' ]"
+      :review-arr="product.reviewArr"
+    />
   </div>
 </template>
 
 <script>
-import ProductCharacteristic from '@/components/ProductCharacteristic.vue'
-import ProductReviews from '@/components/ProductReviews.vue'
-
 export default {
-  components: { ProductCharacteristic, ProductReviews },
   props: {
-    componentArr: {
-      type: Array,
-      default () {
-        return [
-          {
-            id: 1,
-            title: 'Характеристики',
-            value: 'ProductCharacteristic'
-          },
-          {
-            id: 2,
-            title: 'Отзывы покупателей',
-            value: 'ProductReviews'
-          }]
-      }
-    },
     product: {
       type: Object,
       required: true
@@ -52,7 +39,12 @@ export default {
   },
   data () {
     return {
-      current: 'ProductCharacteristic'
+      activeComponent: 'characteristic'
+    }
+  },
+  methods: {
+    tabsFunc (component) {
+      this.activeComponent = component
     }
   }
 }
@@ -64,18 +56,29 @@ export default {
       display: flex;
       gap: sizeIncr($min: 8, $max: 29);
       margin-bottom: sizeIncr($min: 8, $max: 32);
+      @media (max-width: $tablet) {
+        display: none;
+      }
     }
-    &__label {
+    &__btn {
+      font-weight: 500;
       font-size: sizeIncr($min: 24, $max: 34);
       color: $color-text-2;
+      opacity: 0.7;
       @include transition;
       &_active {
-        font-weight: 500;
         color: $color-text-1;
+        opacity: 1;
       }
     }
     &__content {
-
+      display: none;
+      @media (max-width: $tablet) {
+        display: flex;
+      }
+      &_active {
+        display: flex;
+      }
     }
     &__text {
     }

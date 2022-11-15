@@ -102,11 +102,13 @@ export default {
 .swiper {
   display: flex;
   gap: sizeIncr($min: 12, $max: 12);
-  @include  respond-to(mobile) {
+  @media (max-width: $desktop) {
     flex-direction: column-reverse;
   }
   &__swiper {
+    margin: 0 auto;
     width: sizeIncr($min: 374, $max: 708);
+    max-width: 708px;
     height: sizeIncr($min: 315, $max: 630);
     overflow: hidden;
   }
@@ -115,7 +117,7 @@ export default {
     flex-direction: column;
     gap: sizeIncr($min: 20, $max: 20);
     width: sizeIncr($min: 134, $max: 134);
-    @include  respond-to(mobile) {
+    @media (max-width: $desktop) {
       flex-direction: row;
       width: auto;
       height: sizeIncr($min: 134, $max: 134);
@@ -126,9 +128,9 @@ export default {
     display: flex;
     flex-direction: column;
     gap: sizeIncr($min: 6, $max: 16);
-    height: sizeIncr($min: 450, $max: 574);
+    height: sizeIncr($min: 300, $max: 562);
     overflow-y: scroll;
-    @include  respond-to(mobile) {
+    @media (max-width: $desktop) {
       flex-direction: row;
       overflow-y: hidden;
       overflow-x: scroll;
@@ -141,14 +143,14 @@ export default {
 
   }
   &__btn:deep() {
-    padding: rem($n: 16);
+    padding: sizeIncr($min: 10, $max: 16);
     svg {
-      width: rem($n: 16);
-      height: rem($n: 16);
+      width: sizeIncr($min: 10, $max: 16);
+      height: sizeIncr($min: 10, $max: 16);
     }
   }
   &__btn {
-    @include  respond-to(mobile) {
+    @media (max-width: $desktop) {
       display: none;
     }
     &_up {
@@ -163,9 +165,9 @@ export default {
       height: sizeIncr($min: 25, $max: 40);
       transform: rotate(180deg);
       background-color: #fff;
-      @include  respond-to(mobile) {
-      display: none;
-    }
+      @media (max-width: $desktop) {
+        display: none;
+      }
     }
     &_deactive {
       transform: translateY(-150%) rotate(180deg);

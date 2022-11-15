@@ -63,9 +63,12 @@ export default {
     }
     .property__item {
       width: 50%;
+      @media (max-width: $tablet) {
+        width: 100%;
+      };
     }
     .property__label {
-      padding: sizeIncr($min: 24, $max: 24);
+      padding: sizeIncr($min: 16, $max: 24);
     }
     .property__img {
       width: sizeIncr($min: 24, $max: 24);
@@ -81,6 +84,9 @@ export default {
   &__options {
     display: flex;
     gap: sizeDecr($min: 8, $max: 15);
+    @media (max-width: $tablet) {
+      flex-direction: column;
+    };
   }
   &__item {
     border: 1px solid $color-border;

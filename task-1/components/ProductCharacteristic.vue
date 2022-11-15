@@ -1,6 +1,9 @@
 
 <template>
   <div class="characteristic">
+    <h2 class="characteristic__title">
+      Характеристики
+    </h2>
     <a
       :href="characteristic.fileLink.link"
       class="characteristic__link-file"
@@ -17,7 +20,7 @@
         :key="property.id"
         class="characteristic__item"
       >
-        <h3 class="characteristic__title">
+        <h3 class="characteristic__subtitle">
           {{ property.title }}
         </h3>
         <p class="characteristic__value">
@@ -45,9 +48,17 @@ export default {
 
 <style lang="scss" scoped>
 .characteristic {
-  display: flex;
   flex-direction: column;
   gap: sizeIncr($min: 8, $max: 20);
+  &__title {
+    display: none;
+    font-weight: 500;
+    font-size: sizeIncr($min: 24, $max: 34);
+    color: $color-text-1;
+    @media (max-width: $tablet) {
+      display: flex;
+    }
+  }
   &__link-file {
     display: flex;
     align-items: center;
@@ -87,7 +98,7 @@ export default {
       }
     }
   }
-  &__title {
+  &__subtitle {
     width: 50%;
     font-weight: 500;
     font-size: sizeIncr($min: 14, $max: 24);

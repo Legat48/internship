@@ -22,9 +22,12 @@ export default {
 <style lang="scss" scoped>
 .wrap {
   padding: 90px;
-  @include  respond-to(mobile) {
+  @media (max-width: $desktop) {
+    padding:  90px 36px;
+  };
+  @media (max-width: $mobile) {
     padding:  90px 16px;
-  }
+  };
 }
 
 </style>

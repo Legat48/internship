@@ -4,13 +4,13 @@
       Кресло "Папасан" без ротанга
     </h1>
     <div class="product__wrap">
+      <base-rating
+        class="product__rating"
+        :rating="product.rating"
+        :amount-review="product.amountReview"
+      />
       <product-gallety-swiper class="product__swiper" :img-arr="product.imgArr" />
       <form class="product__form" @submit.prevent="test()">
-        <base-rating
-          class="product__rating"
-          :rating="product.rating"
-          :amount-review="product.amountReview"
-        />
         <div class="product__wrap-info">
           <product-price :product="product" />
           <product-wrap-info-btn class="product__wrap-info-btn" />
@@ -57,30 +57,30 @@ export default {
     line-height: 140%;
   }
   &__wrap {
-    position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: sizeDecr($min: 20, $max: 38);
+    grid-template-areas: "swiper rating"
+                         "swiper form"  ;
+    column-gap: sizeDecr($min: 20, $max: 38);
     margin-bottom: sizeIncr($min: 36, $max: 67);
     width: 100%;
-    @include  respond-to(mobile) {
-      padding-top: 58px;
-      grid-template-columns: 1fr;
+    @media (max-width: $desktop) {
+      display: flex;
+      flex-direction: column;
+      gap: sizeDecr($min: 20, $max: 38);
     }
   }
   &__swiper {
     width: 100%;
-    @include  respond-to(mobile) {
-    }
-  }
-  &__form {
+    grid-area: swiper;
   }
   &__rating {
+    grid-area: rating;
     margin-bottom: sizeIncr($min: 15, $max: 24);
-    @include  respond-to(mobile) {
-      position: absolute;
-      inset: 0 0 auto 0;
-    }
+  }
+  &__form {
+    grid-area: form;
+
   }
   &__wrap-info {
     display: flex;
@@ -99,6 +99,15 @@ export default {
     display: flex;
     gap: sizeIncr($min: 20, $max: 20);
     width: 100%;
+    @media (max-width: $tablet) {
+      position: fixed;
+      z-index: 9;
+      inset: auto 0 0 0;
+      flex-direction: row-reverse;
+      padding: 16px;
+      background-color: #fff;
+      box-shadow: 0px 2px 14px rgba(0, 0, 0, 0.25);
+    };
   }
   &__btn {
     padding: sizeIncr($min: 16, $max: 24);
@@ -113,6 +122,7 @@ export default {
     &_fast-add {
       color: $color-text-btn-2;
       border: 1px solid $color-border;
+      background-color: transparent;
     }
   }
 }
