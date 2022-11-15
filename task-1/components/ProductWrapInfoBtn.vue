@@ -32,8 +32,8 @@ export default {
   gap: sizeIncr($min: 16, $max: 16);
   &__info-btn {
     @include flexCenter;
-    width: sizeIncr($min: 24, $max: 24);
-    height: sizeIncr($min: 24, $max: 24);
+    width: sizeIncr($min: 36, $max: 72);
+    height: sizeIncr($min: 36, $max: 72);
     background-color: rgba(0, 0, 0, 0.02);
     svg {
       width: sizeIncr($min: 20, $max: 20);
