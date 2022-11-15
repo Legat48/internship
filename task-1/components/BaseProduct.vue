@@ -23,12 +23,22 @@
           :property="property"
         />
         <div class="product__wrap-btn">
-          <button class="product__btn product__btn_add btn" type="submit">
-            В корзину
-          </button>
-          <button class="product__btn product__btn_fast-add btn" type="button" @click.prevent="test2()">
+          <button class="product__btn product__btn_fast-add btn" type="button" @click.prevent="">
             Купить в клик
           </button>
+          <button
+            v-show="!added"
+            class="product__btn product__btn_add btn"
+            type="submit"
+            @click.prevent="showAdded()"
+          >
+            В корзину
+          </button>
+          <base-counter
+            v-show="added"
+            v-model="productToCart.amount"
+            class="product__counter"
+          />
         </div>
       </form>
     </div>
@@ -37,11 +47,27 @@
 </template>
 
 <script>
+
 export default {
   props: {
     product: {
       type: Object,
       required: true
+    }
+  },
+  data () {
+    return {
+      productToCart: {
+        amount: 1
+      },
+      added: false
+    }
+  },
+  methods: {
+    showAdded () {
+      if (!this.added) {
+        this.added = true
+      }
     }
   }
 }
@@ -96,14 +122,14 @@ export default {
     }
   }
   &__wrap-btn {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: sizeIncr($min: 20, $max: 20);
     width: 100%;
     @media (max-width: $tablet) {
       position: fixed;
       z-index: 9;
       inset: auto 0 0 0;
-      flex-direction: row-reverse;
       padding: 16px;
       background-color: #fff;
       box-shadow: 0px 2px 14px rgba(0, 0, 0, 0.25);
@@ -112,7 +138,6 @@ export default {
   &__btn {
     padding: sizeIncr($min: 16, $max: 24);
     border-radius: 2px;
-    width: 50%;
     font-family: 'Inter';
     font-weight: 400;
     font-size: sizeIncr($min: 12, $max: 24);
@@ -123,6 +148,8 @@ export default {
       color: $color-text-btn-2;
       border: 1px solid $color-border;
       background-color: transparent;
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
     }
   }
 }
